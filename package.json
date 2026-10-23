@@ -1,0 +1,16 @@
+{
+  "name": "e2ee-chat",
+  "private": true,
+  "version": "1.0.0",
+  "description": "End-to-end encrypted chat using a static session key (RSA-OAEP handshake, AES-256-CBC, HMAC-SHA256, TLS)",
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "dev": "concurrently -n server,client -c magenta,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "npm run start -w server",
+    "gen-cert": "node scripts/gen-cert.mjs",
+    "test:crypto": "node scripts/crypto-test.mjs",
+    "test:e2e": "node scripts/e2e-test.mjs"
+  },
+  "devDependencies": { "concurrently": "^9.1.0", "selfsigned": "^2.4.1" }
+}

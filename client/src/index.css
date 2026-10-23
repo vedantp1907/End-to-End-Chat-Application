@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "vault";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #f7f9fc;
+  --color-base-200: #edf1f7;
+  --color-base-300: #dbe2ee;
+  --color-base-content: #172033;
+  --color-primary: #2845c4;
+  --color-primary-content: #ffffff;
+  --color-secondary: #a8691a;
+  --color-secondary-content: #ffffff;
+  --color-accent: #0e7c86;
+  --color-accent-content: #ffffff;
+  --color-neutral: #172033;
+  --color-neutral-content: #e8edf7;
+  --color-info: #2b6fd6;
+  --color-success: #1b8a5f;
+  --color-warning: #c47f00;
+  --color-error: #c8334b;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.7rem;
+  --radius-box: 1rem;
+  --border: 1px;
+}
+
+@plugin "daisyui/theme" {
+  name: "vaultnight";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0e1423;
+  --color-base-200: #141b2f;
+  --color-base-300: #1f2943;
+  --color-base-content: #e4e9f5;
+  --color-primary: #7f95ff;
+  --color-primary-content: #0b1020;
+  --color-secondary: #e0a458;
+  --color-secondary-content: #1a1205;
+  --color-accent: #4cc3cf;
+  --color-accent-content: #04171a;
+  --color-neutral: #1f2943;
+  --color-neutral-content: #e4e9f5;
+  --color-info: #6aa4ff;
+  --color-success: #4fd1a0;
+  --color-warning: #f0b84a;
+  --color-error: #ff7088;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.7rem;
+  --radius-box: 1rem;
+  --border: 1px;
+}
+
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Instrument Sans", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html, body, #root { height: 100%; }
+body { font-family: var(--font-sans); background: var(--color-base-100); color: var(--color-base-content); }
+.font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+.chat-bubble { white-space: pre-wrap; overflow-wrap: anywhere; max-width: min(34rem, 82vw); }
+.scroll-thin { scrollbar-width: thin; }
+
+/* the one moment of motion: the key-generation shimmer on the login card */
+@keyframes sweep { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.cipher-sweep {
+  background: linear-gradient(90deg, currentColor 0 40%, var(--color-secondary) 50%, currentColor 60% 100%);
+  background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: sweep 2.4s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .cipher-sweep { animation: none; color: inherit; background: none; } }
